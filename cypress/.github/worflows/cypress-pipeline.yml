@@ -1,0 +1,43 @@
+#nome da pipeline
+name: Run Basic Tests
+
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout/Clone do projeto
+        uses: actions/checkout@v4
+
+      - name: Run testes
+        uses: cypress-io/github-action@v6
+        with:
+          record: true
+        env:
+          CYPRESS_RECORD_KEY: ${{secrets.CYPRESS_RECORD_KEY}}
+
+   #EXECUÇÃO NO TERMINAL
+   #rodar na pipeline manual, 
+   #-name: nome  
+   #run: o que deseja rodar
+   #with: gravar no record: true e passar a env: a chave a variavel
+   # cypress_Record_key: ${{secrets.CYPRESS_RECORD_KEY}}
+
+
+#NOME DA PIPELINE
+#CLONAR O PROJETO
+#MOMENTO QUE VAI SER EXECUTADA
+#RODAR JOB - EXECUTAR O TESTES
+#MAQUINA QUE VAI EXECUTADA
+#COMANDOS A SER EXECUTADO
+#JOGAR PARA GITHUB
+#PULL-REQUEST
+#COMANDOS:
+# git add. criei pacote
+# git commit -m'criação do arquivo de pipeline' - comite na branch local
+# git push - vai para branch remota 
+# git push --ste-upstream origin feature/crate-pipeline-file
