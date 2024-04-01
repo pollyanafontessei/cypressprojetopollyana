@@ -6,6 +6,7 @@ on:
     branches: [master]
 
 jobs:
+#o que vai ser executado
   cypress-run:
     runs-on: ubuntu-latest
 
